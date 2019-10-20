@@ -82,8 +82,11 @@ public class OI {
 	    // b11 = new JoystickButton(xb, 11);
       // b12 = new JoystickButton(xb, 12);
 
+      //finished assignments
       A.whenPressed(new WeAreARCommand(CannonMap.OL));
-      B.whenPressed(new WeAreARCommand(2));
+      B.whenPressed(new WeAreARCommand(CannonMap.OR));
+      Y.whenPressed(new WeAreARCommand(CannonMap.IL));
+      X.whenPressed(new WeAreARCommand(CannonMap.IR));
       
   }
 }
