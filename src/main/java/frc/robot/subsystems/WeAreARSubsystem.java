@@ -17,36 +17,14 @@ import frc.robot.CannonMap;
 public class WeAreARSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  private Solenoid solenoid;
 
-  private static Solenoid outerLeft = new Solenoid(CannonMap.OL);
-
-  private static Solenoid innerLeft = new Solenoid(CannonMap.IL);
-
-  private static Solenoid innerRight = new Solenoid(CannonMap.IR);
-
-  private static Solenoid outerRight = new Solenoid(CannonMap.OR);
-
- /* public static Solenoid whowhatnow(int portNumber) {
-    if(portNumber == CannonMap.OL) {
-      return outerLeft;
-    } else if(portNumber == CannonMap.IL) {
-      return innerLeft;
-    } else if(portNumber == CannonMap.IR) {
-      return innerRight;
-    } else {
-      return outerRight;
-    }
-    
-  }
-  */
   // took out static modifier here
   public void shootA(int n){
-    if(n == 0) {
-      outerLeft.setPulseDuration(0.1);
-      outerLeft.startPulse();
-    } else {
-      System.out.println("Buttons are functional");
-    }
+    //TODO: check if these are the right methods for what we are doing.
+    solenoid = new Solenoid(n);
+    solenoid.setPulseDuration(.1);
+    solenoid.startPulse();
   }
 
   @Override

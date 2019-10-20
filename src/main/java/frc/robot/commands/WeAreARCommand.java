@@ -33,16 +33,9 @@ public class WeAreARCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   /* Solenoid oof = Robot.pn.whowhatnow(solenoidPort);
-    oof.set(true);
-    // oof.set(false);
-    System.out.println("Fired Solenoid!:"+ oof);
-    
-   */ 
     //used int value to shoot
     Robot.pn.shootA(solenoid);
     System.out.println("Fired Solenoid!:"+ solenoid);
-    
   }
 
   // Make this return true when this Command no longer needs to run execute()
