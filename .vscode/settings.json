@@ -1,0 +1,31 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "bin/": true,
+    ".classpath": true,
+    ".project": true
+  },
+  "workbench.colorCustomizations": {
+  "[soft era]": {
+    "foreground": "#9506a8",
+    "errorForeground": "#ff0000",
+    "tab.activeForeground": "#f0317a"   
+  }
+},
+"editor.tokenColorCustomizations": {
+  "[soft era]":{
+    
+    "comments": "#ff3333b0",
+    "variables": "#d12dd6", 
+    "functions": "#12b4b4",
+    "numbers": "#d62e2e",
+    "strings": "#37f1c3ec", 
+    "keywords":"#ff00ff", 
+    
+  }}
+} 
