@@ -39,7 +39,8 @@ public class WeAreARSubsystem extends Subsystem {
     
   }
   */
-  public static void shootA(int n){
+  // took out static modifier here
+  public void shootA(int n){
     if(n == 0) {
       outerLeft.setPulseDuration(0.1);
       outerLeft.startPulse();

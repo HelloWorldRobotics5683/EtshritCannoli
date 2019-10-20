@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 // import edu.wpi.first.wpilibj.Solenoid;
@@ -14,12 +15,14 @@ import frc.robot.Robot;
 
 public class WeAreARCommand extends Command {
 
-  private int no;
+//created int variable
+  private int solenoid;
   public WeAreARCommand(int solenoidPort) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.pn);
-   // this.solenoidPort = solenoidPort;
+    //assigned int value to variable
+    solenoid = solenoidPort;
   }
 
   // Called just before this Command runs the first time
@@ -36,8 +39,9 @@ public class WeAreARCommand extends Command {
     System.out.println("Fired Solenoid!:"+ oof);
     
    */ 
-
-    Robot.pn.shootA(0);
+    //used int value to shoot
+    Robot.pn.shootA(solenoid);
+    System.out.println("Fired Solenoid!:"+ solenoid);
     
   }
 
