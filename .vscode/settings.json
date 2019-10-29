@@ -23,7 +23,7 @@
     "comments": "#ff3333b0",
     "variables": "#d12dd6", 
     "functions": "#12b4b4",
-    "numbers": "#d62e2e",
+    "numbers": "#000000",
     "strings": "#37f1c3ec", 
     "keywords":"#ff00ff", 
     

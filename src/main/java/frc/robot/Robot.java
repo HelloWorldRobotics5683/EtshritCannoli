@@ -9,10 +9,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*; 
+import frc.robot.OI;
+
+//import edu.wpi.first.wpilibj.command.Command;
 
 
 
@@ -44,7 +46,7 @@ public class Robot extends TimedRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
 
-    //dt = new EtshritTrainSubsystem();
+    dt = new EtshritTrainSubsystem();
     pn = new WeAreARSubsystem();
     m_oi = new OI();
     }
@@ -90,7 +92,7 @@ public class Robot extends TimedRobot {
     m_autonomousCommand.cancel();
      }
      */
-
+     
     }
  
 

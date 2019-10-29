@@ -24,9 +24,9 @@ public class CannonMap{
 
     public static final int FL = 0;
 
-    public static final int FR = 1;
+    public static final int FR = 2;
 
-    public static final int RL = 2;
+    public static final int RL = 1;
 
     public static final int RR = 3;
 

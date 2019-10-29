@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+//import edu.wpi.first.wpilibj.GenericHID.Hand;
+
 // Import the button group classes for use in OI 
 // import frc.robot.triggers.SingleButton;
 // Import all commands/command groups to bind to buttons
@@ -63,8 +66,8 @@ public class OI {
   Button RS; // Click right stick
   // Button b11;
   // Button b12;
- 
-
+  
+  
   private int num_of_sticks = 2;
 
   public OI() {
@@ -82,8 +85,20 @@ public class OI {
 	    // b11 = new JoystickButton(xb, 11);
       // b12 = new JoystickButton(xb, 12);
 
-      A.whenPressed(new WeAreARCommand(CannonMap.OL));
-      B.whenPressed(new WeAreARCommand(2));
+    // Firing the t-shirt cannon;     OL    IL     IR     OR
+    A.whileHeld(new WeAreARCommand(true, false, false, false));
+    B.whileHeld(new WeAreARCommand(false, true, false, false));
+    X.whileHeld(new WeAreARCommand(false, false, true, false));
+    Y.whileHeld(new WeAreARCommand(false, false, false, true));
+    Start.whileHeld(new WeAreARCommand(true, true, true, true));
       
+  }
+
+  public Double LeftPastaY(){
+    return xb.getY(Hand.kLeft);
+  }
+
+  public Double RightPastaY(){
+    return xb.getY(Hand.kRight);
   }
 }

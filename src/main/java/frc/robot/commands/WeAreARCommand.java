@@ -14,12 +14,23 @@ import frc.robot.Robot;
 
 public class WeAreARCommand extends Command {
 
-  private int no;
-  public WeAreARCommand(int solenoidPort) {
+ // private int solenoid;
+  private boolean shootOL;
+  private boolean shootIL;
+  private boolean shootIR;
+  private boolean shootOR;
+  
+  public WeAreARCommand(boolean OL, boolean IL, boolean IR, boolean OR) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.pn);
-   // this.solenoidPort = solenoidPort;
+   
+    // Booleans that are true if firing the related solenoid.
+    shootOL = OL; 
+    shootIL = IL;
+    shootIR = IR;
+    shootOR = OR;
+
   }
 
   // Called just before this Command runs the first time
@@ -30,14 +41,7 @@ public class WeAreARCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   /* Solenoid oof = Robot.pn.whowhatnow(solenoidPort);
-    oof.set(true);
-    // oof.set(false);
-    System.out.println("Fired Solenoid!:"+ oof);
-    
-   */ 
-
-    Robot.pn.shootA(0);
+    Robot.pn.shoot(shootOL, shootIL, shootIR, shootOR);
     
   }
 

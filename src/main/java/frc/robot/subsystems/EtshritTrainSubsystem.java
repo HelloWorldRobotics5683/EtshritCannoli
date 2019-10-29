@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.CannonMap;
+import frc.robot.commands.DifferentialDriveCommand;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
@@ -26,6 +27,7 @@ public class EtshritTrainSubsystem extends Subsystem {
   public static VictorSP rearL = new VictorSP(CannonMap.RL);
   public static VictorSP rearR = new VictorSP(CannonMap.RR);
 
+
   public static SpeedControllerGroup rightCannoli = new SpeedControllerGroup(frontR, rearR);
   public static SpeedControllerGroup leftCannoli = new SpeedControllerGroup(frontL, rearL);
 
@@ -34,29 +36,15 @@ public class EtshritTrainSubsystem extends Subsystem {
 
   public void DifferentialDriveGeneric(double x, double y){
     DD.tankDrive(x, y);
+    DD.setSafetyEnabled(false); 
   }
 
-  /*
-    *public void setThrottle(double newThrottle) {
-    *throttle = newThrottle;
-    *}
-    *
-    *public Double getThrottle() {
-    *return throttle;
-    *}
-*/
   public void feed() {
-    DD.feedWatchdog();
-  }
-
-
-
-
-
+    
+    }
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new DifferentialDriveCommand());
   }
 }

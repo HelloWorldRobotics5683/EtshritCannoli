@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
+
 import frc.robot.CannonMap;
 
 /**
@@ -18,34 +19,43 @@ public class WeAreARSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private static Solenoid outerLeft = new Solenoid(CannonMap.OL);
+  private Solenoid OuterL = new Solenoid(CannonMap.OL);
+  private Solenoid InnerL = new Solenoid(CannonMap.IL);
+  private Solenoid InnerR = new Solenoid(CannonMap.IR);
+  private Solenoid OuterR = new Solenoid(CannonMap.OR);
 
-  private static Solenoid innerLeft = new Solenoid(CannonMap.IL);
+  //private Solenoid solenoid;
 
-  private static Solenoid innerRight = new Solenoid(CannonMap.IR);
 
-  private static Solenoid outerRight = new Solenoid(CannonMap.OR);
-
- /* public static Solenoid whowhatnow(int portNumber) {
-    if(portNumber == CannonMap.OL) {
-      return outerLeft;
-    } else if(portNumber == CannonMap.IL) {
-      return innerLeft;
-    } else if(portNumber == CannonMap.IR) {
-      return innerRight;
-    } else {
-      return outerRight;
+  //TODO: Check if these are the correct methods
+  //Shoots outer left solen-boi
+  public void shoot(boolean OL, boolean IL, boolean IR, boolean OR) {
+    if(OL){
+      OuterL.setPulseDuration(0.1);
+      OuterL.startPulse();
+      System.out.println("Fired outer left!");
     }
+    if(IL) {
+      InnerL.setPulseDuration(0.1);
+      InnerL.startPulse();
+      System.out.println("Fired inner left!");
+    }
+    if(IR) {
+      InnerR.setPulseDuration(0.1);
+      InnerR.startPulse();
+      System.out.println("Fired inner right!");
+    }
+    if(OR) {
+      OuterR.setPulseDuration(0.1);
+      OuterR.startPulse();
+      System.out.println("Fired outer right!");
+    }
+  /*  OuterL.set(false);
+    InnerL.set(false);
+    InnerR.set(false);
+    OuterR.set(false);
+    */
     
-  }
-  */
-  public static void shootA(int n){
-    if(n == 0) {
-      outerLeft.setPulseDuration(0.1);
-      outerLeft.startPulse();
-    } else {
-      System.out.println("Buttons are functional");
-    }
   }
 
   @Override
