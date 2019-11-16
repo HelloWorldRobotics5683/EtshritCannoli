@@ -25,8 +25,8 @@ public class DifferentialDriveCommand extends Command {
   @Override
   protected void execute() {
     Robot.dt.DifferentialDriveGeneric(
-      -1.0*Robot.m_oi.LeftPastaY(), 
-      -1.0*Robot.m_oi.RightPastaY()
+      -1.0 * Robot.m_oi.PastaY() * (-1.0 * Robot.m_oi.Throttle() + 1), 
+      0.75 * Robot.m_oi.RotiniZ()
     );
   }
 

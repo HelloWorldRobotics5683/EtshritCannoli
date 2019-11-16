@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*; 
-import frc.robot.OI;
+import frc.robot.StARticipantjOI;
 
 //import edu.wpi.first.wpilibj.command.Command;
 
@@ -29,7 +29,7 @@ public class Robot extends TimedRobot {
  
   public static EtshritTrainSubsystem dt;
   public static WeAreARSubsystem pn; 
-  public static OI m_oi; 
+  public static StARticipantjOI m_oi; 
   
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
@@ -48,7 +48,7 @@ public class Robot extends TimedRobot {
 
     dt = new EtshritTrainSubsystem();
     pn = new WeAreARSubsystem();
-    m_oi = new OI();
+    m_oi = new StARticipantjOI();
     }
 
   /**

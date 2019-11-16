@@ -27,8 +27,7 @@ public class WeAreARSubsystem extends Subsystem {
   //private Solenoid solenoid;
 
 
-  //TODO: Check if these are the correct methods
-  //Shoots outer left solen-boi
+  //shoots solen-bois
   public void shoot(boolean OL, boolean IL, boolean IR, boolean OR) {
     if(OL){
       OuterL.setPulseDuration(0.1);
@@ -50,12 +49,7 @@ public class WeAreARSubsystem extends Subsystem {
       OuterR.startPulse();
       System.out.println("Fired outer right!");
     }
-  /*  OuterL.set(false);
-    InnerL.set(false);
-    InnerR.set(false);
-    OuterR.set(false);
-    */
-    
+
   }
 
   @Override

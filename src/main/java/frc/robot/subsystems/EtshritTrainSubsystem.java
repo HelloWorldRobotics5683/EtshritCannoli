@@ -34,8 +34,8 @@ public class EtshritTrainSubsystem extends Subsystem {
   public static DifferentialDrive DD = new DifferentialDrive(leftCannoli, rightCannoli);
 
 
-  public void DifferentialDriveGeneric(double x, double y){
-    DD.tankDrive(x, y);
+  public void DifferentialDriveGeneric(double x, double z){
+    DD.arcadeDrive(x, z);
     DD.setSafetyEnabled(false); 
   }
 
