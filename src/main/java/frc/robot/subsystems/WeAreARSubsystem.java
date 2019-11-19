@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
+
 import frc.robot.CannonMap;
 
 /**
@@ -17,14 +18,38 @@ import frc.robot.CannonMap;
 public class WeAreARSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private Solenoid solenoid;
 
-  // took out static modifier here
-  public void shootA(int n){
-    //TODO: check if these are the right methods for what we are doing.
-    solenoid = new Solenoid(n);
-    solenoid.setPulseDuration(.1);
-    solenoid.startPulse();
+  private Solenoid OuterL = new Solenoid(CannonMap.OL);
+  private Solenoid InnerL = new Solenoid(CannonMap.IL);
+  private Solenoid InnerR = new Solenoid(CannonMap.IR);
+  private Solenoid OuterR = new Solenoid(CannonMap.OR);
+
+  //private Solenoid solenoid;
+
+
+  //shoots solen-bois
+  public void shoot(boolean OL, boolean IL, boolean IR, boolean OR) {
+    if(OL){
+      OuterL.setPulseDuration(0.1);
+      OuterL.startPulse();
+      System.out.println("Fired outer left!");
+    }
+    if(IL) {
+      InnerL.setPulseDuration(0.1);
+      InnerL.startPulse();
+      System.out.println("Fired inner left!");
+    }
+    if(IR) {
+      InnerR.setPulseDuration(0.1);
+      InnerR.startPulse();
+      System.out.println("Fired inner right!");
+    }
+    if(OR) {
+      OuterR.setPulseDuration(0.1);
+      OuterR.startPulse();
+      System.out.println("Fired outer right!");
+    }
+
   }
 
   @Override

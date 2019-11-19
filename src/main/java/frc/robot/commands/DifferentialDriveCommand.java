@@ -24,6 +24,10 @@ public class DifferentialDriveCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.dt.DifferentialDriveGeneric(
+      -1.0 * Robot.m_oi.PastaY() * (-1.0 * Robot.m_oi.Throttle() + 1), 
+      0.75 * Robot.m_oi.RotiniZ()
+    );
   }
 
   // Make this return true when this Command no longer needs to run execute()

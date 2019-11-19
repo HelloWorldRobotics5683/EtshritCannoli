@@ -1,28 +1,22 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
+
 package frc.robot;
 
-// Imports for xbox controller and buttons
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+import frc.robot.commands.*;
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
 
-// Import the button group classes for use in OI 
-// import frc.robot.triggers.SingleButton;
-// Import all commands/command groups to bind to buttons
-import frc.robot.commands.*;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
-public class OI {
+public class StARticipantjOI {
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -51,52 +45,64 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
-  // Constructing new xbox controller, buttons, and button groups
-  public static XboxController xb = new XboxController(0);
+  // Constructing new joyox controller, buttons, and button groups
+    public static Joystick joy = new Joystick(0);
 
-  Button A;
-  Button B;
-  Button X;
-  Button Y;
-  Button LB;
-  Button RB;
-  Button Back;
-  Button Start;
-  Button LS; // Click left stick
-  Button RS; // Click right stick
-  // Button b11;
-  // Button b12;
-  //private int num_of_sticks = 2;
+    JoystickButton b1;
+    JoystickButton b2;
+    JoystickButton b3;
+    JoystickButton b4;
+    JoystickButton b5;
+    JoystickButton b6;
+    JoystickButton b7;
+    JoystickButton b8;
+    JoystickButton b9;
+    JoystickButton b10;
+    JoystickButton b11;
+    JoystickButton b12;
 
-  public OI() {
+
+
+
+    public StARticipantjOI() {
     // Initializing buttons and button groups
-    A = new JoystickButton(xb, 1);
-	  B = new JoystickButton(xb, 2);
-	  X = new JoystickButton(xb, 3);
-	  Y = new JoystickButton(xb, 4);
-	  LB = new JoystickButton(xb, 5);
-	  RB = new JoystickButton(xb, 6);
-	  Back = new JoystickButton(xb, 7);
-	  Start = new JoystickButton(xb, 8);
-	  LS = new JoystickButton(xb, 9);
-	  RS = new JoystickButton(xb, 10);
-	    // b11 = new JoystickButton(xb, 11);
-      // b12 = new JoystickButton(xb, 12);
+        b1 = new JoystickButton(joy, 1);
+        b2 = new JoystickButton(joy, 2);
+        b3 = new JoystickButton(joy, 3);
+        b4 = new JoystickButton(joy, 4);
+        b5 = new JoystickButton(joy, 5);
+        b6 = new JoystickButton(joy, 6);
+        b7 = new JoystickButton(joy, 7);
+        b8 = new JoystickButton(joy, 8);
+        b9 = new JoystickButton(joy, 9);
+        b10 = new JoystickButton(joy, 10);
+        b11 = new JoystickButton(joy, 11);
+        b12 = new JoystickButton(joy, 12);
 
-    // Firing the t-shirt cannon;     OL    IL     IR     OR
-    A.whileHeld(new WeAreARCommand(true, false, false, false));
-    B.whileHeld(new WeAreARCommand(false, true, false, false));
-    X.whileHeld(new WeAreARCommand(false, false, true, false));
-    Y.whileHeld(new WeAreARCommand(false, false, false, true));
-    Start.whileHeld(new WeAreARCommand(true, true, true, true));
-      
-  }
 
-  public Double LeftPastaY(){
-    return xb.getY(Hand.kLeft);
-  }
+        //                               OL     IL      IR      OR
+        b5.whenActive(new WeAreARCommand(true, false, false ,false));
+        b3.whenActive(new WeAreARCommand(false, true, false, false));
+        b4.whenActive(new WeAreARCommand(false, false, true, false));
+        b6.whenActive(new WeAreARCommand(false, false, false, true));
+        // No morgan u chaotic beast pls no don't do it lmao
+        // sorry sephora it's happening
+        b2.whenActive(new WeAreARCommand(true, true, true, true));
+    }
 
-  public Double RightPastaY(){
-    return xb.getY(Hand.kRight);
-  }
+    
+    public Double PastaY(){
+        return joy.getY();
+    }
+
+    public Double RotiniZ(){
+        return joy.getTwist();
+    }
+
+    public Double Throttle() {
+        joy.setThrottleChannel(3);
+        return joy.getThrottle();
+    }
 }
+
+

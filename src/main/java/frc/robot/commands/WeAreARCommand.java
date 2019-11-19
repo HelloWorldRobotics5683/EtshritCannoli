@@ -7,7 +7,7 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Solenoid;
+// import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 // import edu.wpi.first.wpilibj.Solenoid;
@@ -15,14 +15,23 @@ import frc.robot.Robot;
 
 public class WeAreARCommand extends Command {
 
-//created int variable
-  private int solenoid;
-  public WeAreARCommand(int solenoidPort) {
+ // private int solenoid;
+  private boolean shootOL;
+  private boolean shootIL;
+  private boolean shootIR;
+  private boolean shootOR;
+  
+  public WeAreARCommand(boolean OL, boolean IL, boolean IR, boolean OR) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.pn);
-    //assigned int value to variable
-    solenoid = solenoidPort;
+   
+    // Booleans that are true if firing the related solenoid.
+    shootOL = OL; 
+    shootIL = IL;
+    shootIR = IR;
+    shootOR = OR;
+
   }
 
   // Called just before this Command runs the first time
@@ -33,9 +42,8 @@ public class WeAreARCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //used int value to shoot
-    Robot.pn.shootA(solenoid);
-    System.out.println("Fired Solenoid!:"+ solenoid);
+    Robot.pn.shoot(shootOL, shootIL, shootIR, shootOR);
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -47,6 +55,7 @@ public class WeAreARCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    
   }
 
   // Called when another command which requires one or more of the same
